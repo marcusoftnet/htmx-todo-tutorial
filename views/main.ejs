@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= APP_NAME %></title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+  </head>
+
+  <body>
+    <nav>
+      <h1><%= APP_NAME %></h1>
+      <%- include("partials/googleSignIn.ejs", {GOOGLE_CLIENT_ID}) %>
+    </nav>
+
+    <div class="todo-container">
+      <h2>Todo items</h2>
+
+      <form id="new-todo-form">
+        <input type="text" id="todo-title" placeholder="Title" required />
+        <input type="date" id="todo-duedate" required />
+        <button type="submit">Add Todo</button>
+      </form>
+
+      <div class="todo-item">
+        <span class="todo-title">Grocery Shopping</span>
+        <span class="todo-duedate">2025-01-18</span>
+      </div>
+
+      <div class="todo-item">
+        <span class="todo-title todo-completed">Book Doctor Appointment</span>
+        <span class="todo-duedate">2025-01-15</span>
+      </div>
+
+      <div class="todo-item">
+        <span class="todo-title">Pay Bills</span>
+        <span class="todo-duedate">2025-01-22</span>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Total items: <span id="total-items">3</span> | Completed:
+        <span id="completed-items">1</span> | Late:
+        <span id="late-items">0</span>
+      </p>
+    </footer>
+  </body>
+</html>
