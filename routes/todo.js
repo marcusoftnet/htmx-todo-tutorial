@@ -27,6 +27,11 @@ router.get("/", async (req, res) => {
   res.render("todo/list.ejs", { todos });
 });
 
+router.get("/:id", async (req, res) => {
+  const todo = await getTodo(req.params.id);
+  res.render("todo/todo-list-item.ejs", { todo });
+});
+
 router.put("/:id/toggle", async (req, res) => {
   await toggleTodoCompleted(req.params.id);
   const todo = await getTodo(req.params.id);

@@ -49,7 +49,7 @@ nav {
   cursor: pointer;
 }
 
-#new-todo-form {
+#todo-form {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -57,16 +57,25 @@ nav {
   margin-bottom: 20px;
 }
 
-#new-todo-form input[type="text"],
-#new-todo-form input[type="date"] {
+#todo-form input[type="text"],
+#todo-form input[type="date"] {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-#new-todo-form button {
+#todo-form button {
   padding: 8px 12px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#todo-form .cancel-button {
+  padding: 8px 12px;
+  background-color: #af4c4c;
   color: white;
   border: none;
   border-radius: 4px;
@@ -89,7 +98,6 @@ footer {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  /* Make the image rounded */
   margin-right: 10px;
 }
 
