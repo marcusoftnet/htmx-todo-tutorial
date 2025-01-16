@@ -1,0 +1,7 @@
+<div id="user-profile" class="user-profile">
+  <img src="<%= user.picture %>" alt="<%= user.name %>" id="user-picture">
+  <span class="user-name" id="user-name">
+    <%= user.name %>
+  </span>
+  <button id="logout-button" hx-get="/auth/logout" hx-target="body">Log out</button>
+</div>
