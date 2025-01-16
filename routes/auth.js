@@ -1,5 +1,7 @@
 import express from "express";
 import { OAuth2Client } from 'google-auth-library';
+import { auth } from "../lib/firebase/config.js";
+import { signInWithCredential, GoogleAuthProvider } from 'firebase/auth';
 
 const router = express.Router();
 
@@ -12,6 +14,10 @@ router.post("/login", async (req, res) => {
       idToken: credential,
       audience: process.env.GOOGLE_CLIENT_ID,
     });
+
+    // Sign in to Firebase using the Google credential
+    const googleCredential = GoogleAuthProvider.credential(credential);
+    await signInWithCredential(auth, googleCredential);
 
     const payload = ticket.getPayload();
     const sessionData = {

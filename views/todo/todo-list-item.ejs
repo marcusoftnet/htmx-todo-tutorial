@@ -1,0 +1,19 @@
+<div class="todo-item" hx-target="closest .todo-item" hx-swap="outerHTML">
+  <span class="todo-title"><%= todo.title %></span>
+  <span class="todo-field"><%= todo.duedate %></span>
+  <span class="todo-field todo-action" hx-put="/todo/<%= todo.id %>/toggle"
+    ><%= todo.completed ? "✅" : "⏳" %></span
+  >
+  <span
+    class="todo-field todo-action"
+    hx-get="/todo/<%= todo.id %>/edit"
+    hx-swap="innerHTML"
+    >...</span
+  >
+  <span
+    class="todo-field todo-action"
+    hx-confirm="Delete?! Sure about that?"
+    hx-delete="/todo/<%= todo.id %>"
+    >❌</span
+  >
+</div>

@@ -10,24 +10,24 @@
     <nav>
       <h1><%= envs.APP_NAME %></h1>
       <% if (!user) { %>
-        <%- include("partials/auth/googleSignIn.ejs", {envs}) %>
+        <%- include("partials/auth/googleSignIn.ejs", {envs})%>
       <% } else { %>
         <%- include("partials/auth/userProfile.ejs", {user}) %>
       <% } %>
     </nav>
 
-    <div class="todo-container">
+    <main class="todo-container">
       <% if (!user) { %>
-        <h2>Log in to see your To-do list</h2>
+      <h2>Log in to see your To-do list</h2>
       <% } else { %>
-        <%- include("partials/todo/list.ejs", {user}) %>
+      <div hx-get="/todo/new" hx-trigger="load"></div>
+      <hr>
+      <div id="todo-list" hx-get="/todo" hx-trigger="load"></div>
       <% } %>
-    </div>
+    </main>
 
-    <footer>
-      <% if (user) { %>
-        <%- include("partials/todo/counters.ejs", {user}) %>
-      <% } %>
-    </footer>
+    <% if (user) { %>
+    <footer><%- include("todo/counters.ejs", {user}) %></footer>
+    <% } %>
   </body>
 </html>

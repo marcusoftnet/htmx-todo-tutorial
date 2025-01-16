@@ -19,7 +19,7 @@ nav {
 .todo-container {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 90%;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -35,17 +35,18 @@ nav {
 
 .todo-title {
   flex-grow: 1;
+  font-weight: bold;
 }
 
-.todo-duedate {
+.todo-field {
   margin-left: 20px;
   font-size: 0.8em;
   color: #777;
 }
 
-.todo-completed {
-  text-decoration: line-through;
-  color: #ccc;
+.todo-action:hover {
+  background-color: lightgrey;
+  cursor: pointer;
 }
 
 #new-todo-form {

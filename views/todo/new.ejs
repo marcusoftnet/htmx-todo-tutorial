@@ -1,0 +1,5 @@
+<form id="new-todo-form" hx-on::after-request="this.reset()">
+  <input type="text" name="title" placeholder="Title" required />
+  <input type="date" name="duedate" required />
+  <button type="submit" hx-post="/todo" hx-target="#todo-list" hx-swap="afterbegin">Add Todo</button>
+</form>

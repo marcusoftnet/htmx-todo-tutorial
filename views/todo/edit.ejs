@@ -1,0 +1,10 @@
+<form id="new-todo-form">
+  <input type="text" name="title" required value="<%= todo.title %>" />
+  <input type="date" name="duedate" required value="<%= todo.duedate %>" />
+  <button
+    type="submit"
+    hx-put="/todo/<%= todo.id %>"
+    hx-target="closest .todo-item"
+    hx-swap="outerHTML"
+  >Update</button>
+</form>
