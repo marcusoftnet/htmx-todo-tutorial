@@ -5,7 +5,7 @@ This code contains the code for a blog post series I wrote on learning HTMx usin
 1. [Part I](https://www.marcusoft.net/2025/01/htmx-todo-tutorial.html)
 1. [Part II](https://www.marcusoft.net/2025/01/htmx-todo-tutorial-II.html)
 1. [Part III](https://www.marcusoft.net/2025/01/htmx-todo-tutorial-III.html)
-1. [Part III](https://www.marcusoft.net/2025/01/htmx-todo-tutorial-IV.html)
+1. [Part IV](https://www.marcusoft.net/2025/01/htmx-todo-tutorial-IV.html)
 
 ## Tools
 
