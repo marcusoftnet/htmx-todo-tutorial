@@ -26,8 +26,8 @@
       <% } %>
     </main>
 
-    <% if (user) { %>
-    <footer><%- include("todo/counters.ejs", {user}) %></footer>
-    <% } %>
+    <footer id="counters" hx-trigger="ITEM_UPDATED from:body" hx-get="/todo/counters">
+      <p>There will be counters here when you log in</p>
+    </footer>
   </body>
 </html>

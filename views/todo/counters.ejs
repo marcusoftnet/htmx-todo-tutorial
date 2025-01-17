@@ -1,5 +1,9 @@
-<p>
-  Total items: <span id="total-items">3</span> | Completed:
-  <span id="completed-items">1</span> | Late:
-  <span id="late-items">0</span>
+<% if(typeof addSwapOOB !== 'undefined') { %>
+  <p hx-swap-oob="innerHtml:#counters">
+<%} else { %>
+  <p>
+<% } %>
+  Total items: <span id="total-items"><%= counters.total %></span>
+  | Completed: <span id="completed-items"><%= counters.completed %></span>
+  | Late:  <span id="late-items"><%= counters.late %></span>
 </p>
