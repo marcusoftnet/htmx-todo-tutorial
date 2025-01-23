@@ -1,0 +1,20 @@
+<div
+  class="form-group <%= errormessage ? "error" : "valid"  %></div>"
+  hx-target="this"
+  hx-swap="outerHTML">
+
+  <% if(errormessage) {%>
+    <span class="error-message" id="duedate-error">
+      <%= errormessage -%>
+    </span>
+  <% } %>
+
+  <input
+    class="<%= errormessage ? "error" : "valid"  %>"
+    type="date"
+    name="duedate"
+    required
+    hx-post="/todo/duedate"
+    value="<%= duedate %>"
+  />
+</div>

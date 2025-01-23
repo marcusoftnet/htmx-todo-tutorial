@@ -49,37 +49,38 @@ nav {
   cursor: pointer;
 }
 
-#todo-form {
+.todo-form {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  align-items: flex-end;
 }
 
-#todo-form input[type="text"],
-#todo-form input[type="date"] {
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  margin-bottom: 8px;
+}
+
+.todo-form input[type="text"],
+.todo-form input[type="date"] {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-#todo-form button {
-  padding: 8px 12px;
+.todo-form button {
+  padding: 8px 16px;
   background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  height: fit-content;
 }
 
-#todo-form .cancel-button {
-  padding: 8px 12px;
+.todo-form .cancel-button {
   background-color: #af4c4c;
   color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 footer {
@@ -103,4 +104,16 @@ footer {
 
 .user-profile .user-name {
   font-weight: bold;
+}
+
+.error-message {
+  color: red;
+}
+
+.error input {
+  box-shadow: 0 0 3px red;
+}
+
+.valid input {
+  box-shadow: 0 0 3px green;
 }

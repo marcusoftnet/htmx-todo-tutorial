@@ -1,5 +1,19 @@
-<form id="todo-form" hx-on::after-request="this.reset()">
-  <input type="text" name="title" placeholder="Title" required />
-  <input type="date" name="duedate" required />
-  <button type="submit" hx-post="/todo" hx-target="#todo-list" hx-swap="afterbegin">Add Todo</button>
+<form
+  id="new-form"
+  class="todo-form"
+  hx-post="/todo"
+  hx-target="#todo-list"
+  hx-swap="afterbegin"
+  hx-on::after-request="
+  if(event.detail.successful && event.detail.pathInfo.requestPath == '/todo') {
+    document.getElementsByName('title')[0].value = '';
+    document.getElementsByName('duedate')[0].value = '';
+  }"
+>
+  <%- include("partials/title.ejs", {errormessage: "" , title: "" }) %>
+  <%- include("partials/duedate.ejs", {errormessage: "", duedate: ""}) %>
+
+  <div class="form-group">
+    <button type="submit">Add Todo</button>
+  </div>
 </form>
