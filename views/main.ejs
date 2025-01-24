@@ -7,24 +7,9 @@
   </head>
 
   <body>
-    <nav>
-      <h1><%= envs.APP_NAME %></h1>
-      <% if (!user) { %>
-        <%- include("partials/auth/googleSignIn.ejs", {envs})%>
-      <% } else { %>
-        <%- include("partials/auth/userProfile.ejs", {user}) %>
-      <% } %>
-    </nav>
+    <nav hx-get="/nav" hx-trigger="load"></nav>
 
-    <main class="todo-container">
-      <% if (!user) { %>
-      <h2>Log in to see your To-do list</h2>
-      <% } else { %>
-      <div hx-get="/todo/new" hx-trigger="load"></div>
-      <hr>
-      <div id="todo-list" hx-get="/todo" hx-trigger="load"></div>
-      <% } %>
-    </main>
+    <main class="todo-container" hx-get="/main" hx-trigger="load"></main>
 
     <footer id="counters" hx-trigger="ITEM_UPDATED from:body" hx-get="/todo/counters">
       <p>There will be counters here when you log in</p>

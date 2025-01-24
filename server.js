@@ -1,7 +1,10 @@
 import express from "express";
-import { sessionConfig, sessionTimeoutMiddleware } from "./middleware/session.js";
-import authRoutes from './routes/auth.js';
-import todoRoutes from './routes/todo.js';
+import {
+  sessionConfig,
+  sessionTimeoutMiddleware,
+} from "./middleware/session.js";
+import authRoutes from "./routes/auth.js";
+import todoRoutes, { getAppViewData } from "./routes/todo.js";
 import morgan from "morgan";
 
 const envs = process.env;
@@ -22,6 +25,22 @@ app.use("/todo", todoRoutes);
 
 app.get("/", (req, res) => {
   return res.render("main.ejs", { envs, user: req?.session?.user });
+});
+
+app.get("/nav", (req, res) => {
+  const templateName = req?.session?.user ? "userProfile.ejs" : "googleSignIn.ejs";
+  return res.render(`partials/auth/${templateName}`, {
+      envs,
+      user: req?.session?.user,
+    })
+});
+
+app.get("/main", async (req, res) => {
+  if (!req?.session?.user) {
+    return res.send("<h2>Log in to see your Todo list</h2>");
+  } else {
+    return res.render("todo/app.ejs", await getAppViewData());
+  }
 });
 
 // Start server

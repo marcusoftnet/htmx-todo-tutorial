@@ -1,19 +1,21 @@
-<form
-  id="new-form"
-  class="todo-form"
-  hx-post="/todo"
-  hx-target="#todo-list"
-  hx-swap="afterbegin"
-  hx-on::after-request="
+<div>
+  <form
+    id="new-form"
+    class="todo-form"
+    hx-post="/todo"
+    hx-target="#todo-list"
+    hx-swap="afterbegin"
+    hx-on::after-request="
   if(event.detail.successful && event.detail.pathInfo.requestPath == '/todo') {
     document.getElementsByName('title')[0].value = '';
     document.getElementsByName('duedate')[0].value = '';
   }"
->
-  <%- include("partials/title.ejs", {errormessage: "" , title: "" }) %>
-  <%- include("partials/duedate.ejs", {errormessage: "", duedate: ""}) %>
+  >
+    <%- include("partials/title.ejs", {errormessage: "" , title: "" }) %>
+    <%- include("partials/duedate.ejs", {errormessage: "", duedate: ""}) %>
 
-  <div class="form-group">
-    <button type="submit">Add Todo</button>
-  </div>
-</form>
+    <div class="form-group">
+      <button type="submit">Add Todo</button>
+    </div>
+  </form>
+</div>

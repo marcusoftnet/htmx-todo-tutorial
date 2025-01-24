@@ -1,5 +1,5 @@
-<% todos.forEach(todo => { %>
-  <%- include("todo-list-item.ejs", {todo}) -%>
-<% }) %>
-
-<%- include("counters.ejs", {counters}) -%>
+<div id="todo-list">
+  <% todos.forEach(todo => { %>
+    <%- include("todo-list-item.ejs", {todo}) -%>
+  <% }) %>
+</div>

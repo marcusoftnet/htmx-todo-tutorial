@@ -49,10 +49,15 @@ router.get("/:id/edit", async (req, res) => {
   res.render("todo/edit.ejs", { todo });
 });
 
-router.get("/", async (req, res) => {
+export const getAppViewData = async () => {
   const todos = await getAllTodos();
   const counters = getCounters(todos);
-  res.render("todo/list.ejs", { todos, counters, addSwapOOB: true });
+  return {todos, counters};
+}
+
+router.get("/", async (req, res) => {
+  const appViewData = await getAppViewData();
+  res.render("todo/list.ejs", { ...appViewData, addSwapOOB: true });
 });
 
 // VALIDATION routes
